@@ -10,38 +10,29 @@
     <h1>Make Change Algorithm</h1>
     <div class="us-form">
         <p>How many combinations are there to make change for the below amount?</p>
-        <p>Enter a dollar amount to see all the difference combinations that you can make change from it using US coins.</p>
+        <p>Enter a dollar amount to see all the different combinations that you can make change from it using US coins.</p>
+        <p>Before you hit submit, press cmd + opt + j to open the developer console and view a table of all the combos.</p>
         <!-- Make a form to accept input to make change for USD -->
         <form id="form-usd">
             <label for="total" name="total">Enter Amount: $</label>
             <input type="number" name="total" id="total" placeholder="$1.00"/>
-            <input type="submit"/>
+            <input type="submit" id="submit"/>
         </form>
     </div>
     <div class="anarchy-form">
         <!-- Make a form to accept input for types of currency and how much they're worth -->
         <p>Enter your own currency and the amount to make change!</p>
+        <p>Enter the currency first, add a comma and add the amount of the currency directly before it. Add as many currencies as you like!</p>
         <form id="form-anarchy">
             <div class="form-section">
-                <label for="input-1-name" name="input-1-name">Enter the name of the currency:</label>
-                <input type="text" name="input-1-name" id="input-1-name" placeholder="Coin" /><br />
-                <label for="input-1-amount" name="input-1-amount">Enter the amount of the currency:</label>
-                <input type="text" name="input-1-amount" id="input-1-amount" placeholder="1" />
+                <label for="currency" name="currency">Enter the name of the currency:</label>
+                <input type="text" name="currency" id="currency" placeholder="Coin,1.5,Arrowhead,3,Button,150" /><br />
             </div>
             <div class="form-section">
-                <label for="input-2-name" name="input-2-name">Enter the name of the currency:</label>
-                <input type="text" name="input-2-name" id="input-2-name" placeholder="Arrow Head" /><br />
-                <label for="input-2-amount" name="input-2-amount">Enter the amount of the currency:</label>
-                <input type="text" name="input-2-amount" id="input-2-amount" placeholder="3" />
+                <label for="currency-amount" name="currency-amount">Enter the amount you want change for.</label>
+                <input type="number" name="currency-amount" id="currency-amount" placeholder="1.00"/>
             </div>
-            <div class="form-section">
-                <label for="input-3-name" name="input-3-name">Enter the name of the currency:</label>
-                <input type="text" name="input-3-name" id="input-3-name" placeholder="Button" /><br />
-                <label for="input-3-amount" name="input-3-amount">Enter the amount of the currency:</label>
-                <input type="text" name="input-3-amount" id="input-3-amount" placeholder="150" />
-            </div>
-
-            <input type="submit" />
+            <input type="submit" id="submit" />
         </form>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

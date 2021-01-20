@@ -4,9 +4,9 @@ $("#form-usd").submit(function(event){
     
     //capture form amount submission and convert to cents
     let formVal = $("#total").val();
-    console.log(formVal); 
+    console.log(`Value you entered: ${formVal}`); 
     let totalCents = (formVal*100)
-    console.log(totalCents)
+    console.log(`Value converted to cents: ${totalCents}`)
 
     // number of coins to make a dollar
     let numQ = totalCents/25;
@@ -51,7 +51,7 @@ $("#form-usd").submit(function(event){
         }
     }
     //console.log count and console.table coinList to format it in a readable way
-    console.log(`Count: ${count}`);
+    console.log(`Number of Combinations / Count: ${count}`);
     console.table(coinList)
 });
 
