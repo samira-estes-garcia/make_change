@@ -1,18 +1,22 @@
 $("#form-usd").submit(function(event){
+
+    //clear console in case user has submitted before, prevent default submission, clear error messages
     console.clear();
     event.preventDefault();
-    $(".error").html("");
+    $(".error").hide();
     
     //capture form amount submission and convert to cents
     let formVal = $("#total").val();
-    console.log(`Value you entered: ${formVal}`); 
+    console.log(`Value you entered: $${formVal}`); 
     let totalCents = (formVal*100)
-    console.log(`Value converted to cents: ${totalCents}`)
+    console.log(`Value converted to cents: ${totalCents}¢`)
+    //debugger;
 
-    //display error if formVal is invalid, remove error if already displayed
-     if (!Number.isInteger(formVal)) {
-            $(".usd-error").html(`<p class="error">Please enter a valid number</p>`)
-            $("#form-usd").trigger("reset")
+    //display error if formVal is invalid aka negative number or NaN
+     if (formVal < 0 || isNaN(formVal)) {
+            $(".usd-error").html(`<p class="error">Please enter a valid positive number</p>`)
+            // $("#form-usd").trigger("reset")
+            console.log(`Please change this value to a valid number: ${formVal}`);
     }
 
     // number of coins to make a dollar
