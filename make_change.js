@@ -82,7 +82,7 @@ $("#form-anarchy").submit(function(event) {
 
     //display error if currency input is invalid
     //given more time I would make sure the inputs were string, num, string, num, etc
-    if (5 <= currencyArr.length <= 9) {
+    if (currencyArr.length < 6  || currencyArr.length > 10) {
         $('.currency-error').html(`<p class="error">Please enter your currencies and their worth in the proper format`)
     }
 
