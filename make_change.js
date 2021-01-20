@@ -1,4 +1,4 @@
-$("#form").submit(function(event){
+$("#form-usd").submit(function(event){
     console.clear();
     event.preventDefault();
     
@@ -34,11 +34,14 @@ $("#form").submit(function(event){
         this.penny = penny;
     } 
 
+    //loop through each type of coin to see if coins needed to make a dollar is reached
+    //increment and move to next coin
     for(let q = 0; q <= numQ; q++){
          for(let d = 0; d <= numD; d++){
             for(let n = 0; n <= numN; n++){
               for(let p = 0; p <= numP; p++){
                     if(((q*25) + (d*10) + (n*5) + p ) == totalCents) {
+                        //set individual combo to a coin count obj, push into coinList, increment count
                         let combo = new coinCount(q, d, n, p);
                         coinList.push(combo);
                         count++;
@@ -47,6 +50,9 @@ $("#form").submit(function(event){
             }
         }
     }
+    //console.log count and console.table coinList to format it in a readable way
     console.log(`Count: ${count}`);
     console.table(coinList)
 });
+
+// $(".form-anarchy").submit
