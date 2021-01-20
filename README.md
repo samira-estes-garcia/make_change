@@ -9,6 +9,8 @@ Make Change uses JavaScript and jQuery to calculate all the combinations that US
 - Clone down this repo and type "open index.html" in your terminal
 - Press command + option + j to open developer console to view the combinations in a neat and efficient table format
 
+![Image of Make Change](https://imgur.com/s5aN6g1)
+
 ## License
 
 The app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
