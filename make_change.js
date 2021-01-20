@@ -1,3 +1,4 @@
+//handle form submission for first form
 $("#form-usd").submit(function(event){
 
     //clear console in case user has submitted before, prevent default submission, clear error messages
@@ -19,7 +20,7 @@ $("#form-usd").submit(function(event){
             console.log(`Please change this value to a valid number: ${formVal}`);
     }
 
-    // number of coins to make a dollar
+    // number of coins to make change for the formVal
     let numQ = totalCents/25;
     let numD = totalCents/10;
     let numN = totalCents/5;
@@ -66,13 +67,37 @@ $("#form-usd").submit(function(event){
     console.table(coinList)
 });
 
+//handle form submission for second form
 $("#form-anarchy").submit(function(event) {
     console.clear();
     event.preventDefault();
+    $(".error").hide();
 
-    //capture the form submission
+    //capture the form submission for currencies
     let currency = $('#currency').val();
     console.log(currency); 
     let currencyArr = currency.split(",");
     console.log(currencyArr);
+
+    //capture form submission for amount to get change for, convert to "cents"
+    let total = $("#currency-amount").val();
+    totalCents = (total*100);
+    console.log(total);
+
+    //display error if formVal is invalid aka negative number or NaN
+    if (total < 0 || isNaN(total)) {
+        $(".currency-amount-error").html(`<p class="error">Please enter a valid positive number</p>`)
+        // $("#form-usd").trigger("reset")
+        console.log(`Please change this value to a valid number: ${total}`);
+    }
+
+    //capture info from currencyArr
+    let currOneName = currencyArr[0];
+    let currOneVal = currencyArr[1];
+    console.log(`${currOneName} x ${currOneVal} = 1 unit`);
+
+    //how much is each type of currency worth?
+    let currOneWorth = 1/currOneVal;
+    console.log(`Currency One is worth: ${currOneWorth} of a unit`);
+    let numCurrOne = totalCents/currOneWorth; 
 })
