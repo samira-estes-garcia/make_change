@@ -10,9 +10,9 @@
     <p>How many combinations are there to make change for the below Amount?</p>
     <!-- Make a form to accept input to make change for USD -->
     <form>
-        <label for="total" name="total" id="total">Enter Amount</label>
+        <label for="total" name="total" id="total">Enter Amount: $</label>
         <input type="number" name="total" placeholder="$1.00"/>
-        <input type="submit" />
+        <input type="submit"  onclick="makeChange()"/>
     </form>
     <!-- Display the result of the calculation -->
     <script src="make_change.js"></script>
