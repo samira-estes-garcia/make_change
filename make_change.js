@@ -111,6 +111,8 @@ $("#form-anarchy").submit(function(event) {
     let currFiveName = currencyArr[8];
     let currFiveVal = currencyArr[9];
 
+    console.log(`CurrOneName: ${currOneName}, CurrTwoName: ${currTwoName}, CurrThreeName: ${currThreeName}, CurrFourName: ${currFourName}, CurrFiveName: ${currFiveName}`)
+
     //how much is each type of currency worth? divide 1 unit by the value, multiply by 100, divide totalCents by worth
     let currOneWorth = (1/currOneVal)*100;
     currOneWorth = currOneWorth.toFixed(2);
