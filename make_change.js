@@ -79,6 +79,12 @@ $("#form-anarchy").submit(function(event) {
     let currencyArr = currency.split(",");
     console.log(currencyArr);
 
+    //display error if currency input is invalid
+    //given more time I would make sure the inputs were string, num, string, num, etc
+    if (5 <= currencyArr.length <= 9) {
+        $('.currency-error').html(`<p class="error">Please enter your currencies and their worth in the proper format`)
+    }
+
     //capture form submission for amount to get change for, convert to "cents"
     let total = $("#currency-amount").val();
     totalCents = (total*100);
@@ -92,12 +98,90 @@ $("#form-anarchy").submit(function(event) {
     }
 
     //capture info from currencyArr
+    currencyArr.length
     let currOneName = currencyArr[0];
     let currOneVal = currencyArr[1];
-    console.log(`${currOneName} x ${currOneVal} = 1 unit`);
+    let currTwoName = currencyArr[2];
+    let currTwoVal = currencyArr[3];
+    let currThreeName = currencyArr[4];
+    let currThreeVal = currencyArr[5];
+    let currFourName = currencyArr[6];
+    let currFourVal = currencyArr[7];
+    let currFiveName = currencyArr[8];
+    let currFiveVal = currencyArr[9];
 
-    //how much is each type of currency worth?
-    let currOneWorth = 1/currOneVal;
+    // console.log(`${currOneName} x ${currOneVal} = 1 unit`);
+
+    //how much is each type of currency worth? divide 1 unit by the value, multiply by 100, divide totalCents by worth
+    let currOneWorth = (1/currOneVal)*100;
+    currOneWorth = currOneWorth.toFixed(2);
     console.log(`Currency One is worth: ${currOneWorth} of a unit`);
     let numCurrOne = totalCents/currOneWorth; 
+
+    let currTwoWorth = (1/currTwoVal)*100;
+    currTwoWorth = currTwoWorth.toFixed(2);
+    console.log(`Currency Two is worth: ${currTwoWorth} of a unit`);
+    let numCurrTwo = totalCents/currTwoWorth; 
+
+    let currThreeWorth = (1/currThreeVal)*100;
+    currThreeWorth = currThreeWorth.toFixed(2);
+    console.log(`Currency Three is worth: ${currThreeWorth} of a unit`);
+    let numCurrThree = totalCents/currThreeWorth; 
+
+    let currFourWorth = (1/currFourVal)*100;
+    currFourWorth = currFourWorth.toFixed(2);
+    console.log(`Currency Four is worth: ${currFourWorth} of a unit`);
+    let numCurrFour = totalCents/currFourWorth; 
+
+    let currFiveWorth = (1/currFiveVal)*100;
+    currFiveWorth = currFiveWorth.toFixed(2);
+    console.log(`Currency Five is worth: ${currFiveWorth} of a unit`);
+    let numCurrFive = totalCents/currFiveWorth; 
+
+    //let num currencies to start with
+    a = 0;
+    b = 0;
+    c = 0;
+    d = 0;
+    e = 0;
+
+    //array to push all combos into
+    let coinList = [];
+
+    //number of combinations
+    count = 0;
+
+    //function to intialize types of coins
+    function coinCount(currOneName, currTwoName, currThreeName, currFourName, currFiveName) {
+        this.currOneName = currOneName;
+        this.currTwoName = currTwoName;
+        this.currThreeName = currThreeName;
+        this.currFourName = currFourName;
+        this.currFiveName = currFiveName;
+    }
+
+    //loop through each type of coin to see if coins needed to make a dollar is reached
+    //increment and move to next coin
+//     for(let a = 0; a <= numCurrOne; a++){
+//         for(let b = 0; b <= numCurrTwo; b++){
+//            for(let c = 0; c <= numCurrThree; c++){
+//              for(let d = 0; d <= numCurrFour; d++){
+//                  for(let e = 0; e <= numCurrFive; e++) {
+//                     if(((a*25) + (d*10) + (n*5) + p ) == totalCents) {
+//                         //set individual combo to a coin count obj, push into coinList, increment count
+//                         let combo = new coinCount(q, d, n, p);
+//                         coinList.push(combo);
+//                         count++;
+//                       }
+//                  }
+//                }
+//            }
+//        }
+//    }
+   //console.log count and console.table coinList to format it in a readable way
+   console.log(`Number of Combinations / Count: ${count}`);
+   console.table(coinList)
+
+
+
 })
