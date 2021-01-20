@@ -1,12 +1,19 @@
 $("#form-usd").submit(function(event){
     console.clear();
     event.preventDefault();
+    $(".error").html("");
     
     //capture form amount submission and convert to cents
     let formVal = $("#total").val();
     console.log(`Value you entered: ${formVal}`); 
     let totalCents = (formVal*100)
     console.log(`Value converted to cents: ${totalCents}`)
+
+    //display error if formVal is invalid, remove error if already displayed
+     if (!Number.isInteger(formVal)) {
+            $(".usd-error").html(`<p class="error">Please enter a valid number</p>`)
+            $("#form-usd").trigger("reset")
+    }
 
     // number of coins to make a dollar
     let numQ = totalCents/25;
@@ -55,4 +62,13 @@ $("#form-usd").submit(function(event){
     console.table(coinList)
 });
 
-// $(".form-anarchy").submit
+$("#form-anarchy").submit(function(event) {
+    console.clear();
+    event.preventDefault();
+
+    //capture the form submission
+    let currency = $('#currency').val();
+    console.log(currency); 
+    let currencyArr = currency.split(",");
+    console.log(currencyArr);
+})

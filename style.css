@@ -17,6 +17,14 @@ h1 {
   padding: 5%;
 }
 
+#currency {
+  width: 30%;
+}
+
+.error {
+  color: red;
+}
+
 /* .form-section {
   padding: 2% 0;
 }
