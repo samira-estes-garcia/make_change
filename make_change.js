@@ -1,6 +1,8 @@
 function makeChange() {
 
-    totalCents = (value*100)
+    let formVal = $("#total").val;
+    console.log(formVal); 
+    let totalCents = (formVal*100)
 
     // number of coins to make a dollar
     let numQ = totalCents/25;
@@ -19,7 +21,7 @@ function makeChange() {
     
                 for(let p = 0; p <= numP; p++){
     
-                    if( ((q * 25) + (d * 10) + (n * 5) + p ) == totalCents ){
+                    if( ((q * 25) + (d * 10) + (n * 5) + p) == totalCents ){
     
                         console.log("Q: "+q+" D: "+d+" N: "+n+" P: "+p );
                         count++;
