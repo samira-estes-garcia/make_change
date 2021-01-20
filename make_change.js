@@ -75,10 +75,10 @@ $("#form-anarchy").submit(function(event) {
 
     //capture the form submission for currencies
     let currency = $('#currency').val();
-    console.log(currency); 
+    console.log(`Value you entered ${currency}`); 
     let currencyArr = currency.split(",");
-    console.log(currencyArr);
-    console.log(currencyArr.length);
+    console.log(`String split into array: ${currencyArr}`);
+    //console.log(currencyArr.length);
 
     //display error if currency input is invalid
     //given more time I would make sure the inputs were string, num, string, num, etc
@@ -111,32 +111,25 @@ $("#form-anarchy").submit(function(event) {
     let currFiveName = currencyArr[8];
     let currFiveVal = currencyArr[9];
 
-    // console.log(`${currOneName} x ${currOneVal} = 1 unit`);
-
     //how much is each type of currency worth? divide 1 unit by the value, multiply by 100, divide totalCents by worth
     let currOneWorth = (1/currOneVal)*100;
     currOneWorth = currOneWorth.toFixed(2);
-    //console.log(`Currency One is worth: ${currOneWorth} of a unit`);
     let numCurrOne = totalCents/currOneWorth; 
 
     let currTwoWorth = (1/currTwoVal)*100;
     currTwoWorth = currTwoWorth.toFixed(2);
-    //console.log(`Currency Two is worth: ${currTwoWorth} of a unit`);
     let numCurrTwo = totalCents/currTwoWorth; 
 
     let currThreeWorth = (1/currThreeVal)*100;
     currThreeWorth = currThreeWorth.toFixed(2);
-    //console.log(`Currency Three is worth: ${currThreeWorth} of a unit`);
     let numCurrThree = totalCents/currThreeWorth; 
 
     let currFourWorth = (1/currFourVal)*100;
     currFourWorth = currFourWorth.toFixed(2);
-    //console.log(`Currency Four is worth: ${currFourWorth} of a unit`);
     let numCurrFour = totalCents/currFourWorth; 
 
     let currFiveWorth = (1/currFiveVal)*100;
     currFiveWorth = currFiveWorth.toFixed(2);
-    //console.log(`Currency Five is worth: ${currFiveWorth} of a unit`);
     let numCurrFive = totalCents/currFiveWorth; 
 
     //let num currencies to start with
